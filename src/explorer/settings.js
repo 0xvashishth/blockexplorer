@@ -1,6 +1,7 @@
 import { Network, Alchemy } from 'alchemy-sdk';
+require('dotenv').config()
 const settings = {
-    apiKey: "phZ7U_FKOQH8ml_HZWFiSFi2_P1BSFIT",
+    apiKey: process.env.REACT_APP_ALCHEMY_API_KEY,
     network: Network.ETH_MAINNET,
 };
 const alchemy = new Alchemy(settings);
