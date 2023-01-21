@@ -8,6 +8,7 @@ import router from './router.js'
 import {
   RouterProvider,
 } from "react-router-dom";
+import $ from 'jquery';
 // import loaderimg from '../loader.gif';
 // import ReactDOM from 'react-dom';
 
@@ -54,18 +55,23 @@ function Explorer() {
   // });
 
 
+  const ViewBlock = (event) => {
+    const addr = "block?bk=" + $("#hashInput").val();
+    window.location.replace(addr);
+  }
+
   return (
     <div>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#link">blockscan</a>
+          <a class="navbar-brand" href="/">blockscan</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse text-right navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link active" href="#link">Home
+                <a class="nav-link active" href="/">Home
                   <span class="visually-hidden">(current)</span>
                 </a>
               </li>
@@ -106,7 +112,7 @@ function Explorer() {
         </div>
         <div className='col-sm-8 d-flex'>
           <input className="form-control" id="hashInput" placeholder='Enter Hash/Block Number' />&nbsp;&nbsp;
-          <button className='btn btn-outline-light'>View</button>
+          <button className='btn btn-outline-light' onClick={ViewBlock}>View</button>
         </div>
       </div>
       <RouterProvider router={router} />

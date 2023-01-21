@@ -45,7 +45,7 @@ function InitialBlocksTransactions() {
         console.log("Transaction Info:", transactions);
         var timestamp = result.timestamp * 1000;
         var time = new Date(timestamp).toLocaleTimeString();
-        for(var i=0;i<1;i++){
+        for(var i=0;i<5;i++){
             // gas 
             var strgas = transactions[i].gasPrice._hex;
             strgas = strgas.slice(2);
@@ -58,7 +58,7 @@ function InitialBlocksTransactions() {
             transaction_details[i] = <tr class="table-active">
             <td>
               <p>
-                Hash <a href="#link">{(result.hash).slice(0,4)}</a>
+                Hash <a href="#link">{(result.hash).slice(0,8)}</a>
                 <br />
                 <small class="form-text text-muted">{time}</small>
               </p>
@@ -77,7 +77,7 @@ function InitialBlocksTransactions() {
   }
 
   async function getBlockInformation(blocknumber) {
-    for (var i = 0; i < 1; i++) {
+    for (var i = 0; i < 5; i++) {
       await alchemy.core.getBlock(blocknumber - i).then(function(result) {
         var timestamp = result.timestamp * 1000;
         var time = new Date(timestamp).toLocaleTimeString();
